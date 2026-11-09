@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Voice Debate — AI-র সাথে তর্ক করো</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- স্ক্রিন ১: সেটআপ (API Key) -->
+  <section id="screen-setup" class="screen active">
+    <div class="card">
+      <h1>🎙️ Voice Debate</h1>
+      <p class="subtitle">প্রথমবার ব্যবহারের আগে তোমার Gemini API Key বসাও</p>
+      <input type="password" id="apiKeyInput" placeholder="তোমার Gemini API Key এখানে পেস্ট করো" />
+      <button id="saveKeyBtn" class="btn-primary">সেভ করে এগিয়ে যাও</button>
+      <p class="hint">
+        Key নেই? <a href="https://aistudio.google.com/apikey" target="_blank" rel="noopener">aistudio.google.com</a>
+        থেকে ফ্রি তে নিয়ে নাও। এই key শুধু তোমার ব্রাউজারে (এই ডিভাইসে) সেভ থাকবে, কোথাও পাঠানো হবে না।
+      </p>
+    </div>
+  </section>
+
+  <!-- স্ক্রিন ২: টপিক + স্টাইল বাছাই -->
+  <section id="screen-topic" class="screen">
+    <div class="card">
+      <h1>🎙️ Voice Debate</h1>
+      <p class="subtitle">একটা টপিক বাছো, অথবা নিজের টপিক লেখো</p>
+
+      <div class="chip-grid" id="topicChips">
+        <button class="chip" data-topic="চা কফির চেয়ে ভালো">চা কফির চেয়ে ভালো</button>
+        <button class="chip" data-topic="AI মানুষের চাকরি কেড়ে নেবে">AI মানুষের চাকরি কেড়ে নেবে</button>
+        <button class="chip" data-topic="বই পড়া সিনেমা দেখার চেয়ে ভালো">বই পড়া সিনেমা দেখার চেয়ে ভালো</button>
+        <button class="chip" data-topic="ক্রিকেট ফুটবলের চেয়ে ভালো খেলা">ক্রিকেট ফুটবলের চেয়ে ভালো খেলা</button>
+        <button class="chip" data-topic="সকালে ওঠা রাত জাগার চেয়ে ভালো">সকালে ওঠা রাত জাগার চেয়ে ভালো</button>
+        <button class="chip" data-topic="টাকা দিয়ে সুখ কেনা যায়">টাকা দিয়ে সুখ কেনা যায়</button>
+        <button class="chip" data-topic="Social media মানুষের জন্য ক্ষতিকর">Social media মানুষের জন্য ক্ষতিকর</button>
+        <button class="chip" data-topic="Remote work অফিসে কাজের চেয়ে ভালো">Remote work অফিসে কাজের চেয়ে ভালো</button>
+      </div>
+
+      <input type="text" id="customTopicInput" placeholder="অথবা নিজের টপিক লেখো..." />
+
+      <p class="section-label">স্টাইল বাছো</p>
+      <div class="style-grid" id="styleOptions">
+        <button class="style-btn active" data-style="friendly">
+          <span class="emoji">😊</span>
+          <span>Friendly</span>
+          <small>হালকা, মজার টোন</small>
+        </button>
+        <button class="style-btn" data-style="serious">
+          <span class="emoji">🎓</span>
+          <span>Serious</span>
+          <small>যুক্তি-তথ্যনির্ভর</small>
+        </button>
+        <button class="style-btn" data-style="savage">
+          <span class="emoji">🔥</span>
+          <span>Savage</span>
+          <small>খোঁচা দিয়ে তর্ক</small>
+        </button>
+      </div>
+
+      <button id="startDebateBtn" class="btn-primary">তর্ক শুরু করো →</button>
+    </div>
+  </section>
+
+  <!-- স্ক্রিন ৩: ডিবেট চ্যাট স্ক্রিন -->
+  <section id="screen-debate" class="screen">
+    <div class="debate-header">
+      <button id="backBtn" class="icon-btn">←</button>
+      <div class="debate-title">
+        <span id="currentTopic">টপিক</span>
+        <span id="currentStyleBadge" class="badge">😊 Friendly</span>
+      </div>
+    </div>
+
+    <div id="transcript" class="transcript"></div>
+
+    <div class="mic-area">
+      <div id="statusText" class="status-text">মাইকে চাপো আর তোমার যুক্তি বলো</div>
+      <button id="micBtn" class="mic-btn">
+        <svg id="micIcon" viewBox="0 0 24 24" width="36" height="36">
+          <path fill="currentColor" d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3Zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 6 6.92V21h2v-3.08A7 7 0 0 0 19 11h-2Z"/>
+        </svg>
+      </button>
+      <div id="pulseRing" class="pulse-ring"></div>
+    </div>
+  </section>
+
+  <audio id="ttsAudio" hidden></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>

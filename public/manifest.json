@@ -1,0 +1,32 @@
+{
+  "id": "/",
+  "name": "Voice Debate AI - বাংলা ভয়েস বিতর্ক",
+  "short_name": "VoiceDebate",
+  "description": "AI-র সাথে বাংলায় সরাসরি ভয়েস ও টেক্সটে লাইভ বিতর্ক প্রতিযোগিতা।",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0f1221",
+  "theme_color": "#7c5cff",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ]
+}

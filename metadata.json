@@ -1,0 +1,6 @@
+{
+  "name": "Voice Debate AI - বাংলা ভয়েস বিতর্ক",
+  "description": "AI-র সাথে বাংলায় সরাসরি ভয়েস ও টেক্সটে প্রাণবন্ত বিতর্ক ও আর্গুমেন্ট করুন। কাস্টম টপিক, বিভিন্ন পার্সোনা এবং ফলাফল ঘোষণার সুবিধা সহ।",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
